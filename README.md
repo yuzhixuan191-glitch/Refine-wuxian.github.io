@@ -1,123 +1,137 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refine无羡 · 认知协议实验室</title>
-    <style>
-        /* 所有CSS样式都集成在这里 */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; padding: 20px; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; margin-bottom: 10px; text-align: center; }
-        .tagline { text-align: center; color: #7f8c8d; margin-bottom: 30px; font-style: italic; }
-        section { margin-bottom: 30px; padding: 20px; border-left: 4px solid #3498db; background: #f8f9fa; }
-        h2 { color: #2980b9; margin-bottom: 15px; }
-        .model-grid { display: grid; gap: 15px; }
-        .model-card { padding: 15px; background: #e8f4fc; border-radius: 5px; cursor: pointer; }
-        .model-card:hover { background: #d1e9ff; }
-        .case-card { background: #fff8e1; border-left-color: #f39c12; }
-        .button { display: inline-block; padding: 10px 20px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .button:hover { background: #2980b9; }
-        .footer { text-align: center; margin-top: 40px; color: #95a5a6; font-size: 0.9em; border-top: 1px solid #eee; padding-top: 20px; }
-        /* 弹窗样式 */
-        .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000; }
-        .popup-content { background: white; padding: 25px; border-radius: 10px; max-width: 500px; width: 90%; position: relative; }
-        .close { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #e74c3c; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Refine无羡 · 认知协议实验室</h1>
-        <p class="tagline">给经验设计语法，给存在建立坐标</p>
-        <div style="text-align:center; margin-bottom:30px; color:#27ae60;">
-            <strong>“感受即效率”</strong> — 2026.02.11
-        </div>
+```acal
+ACAL-Case-PROJECT001 {
 
-        <section>
-            <h2>⚙️ 核心认知模型</h2>
-            <div class="model-grid">
-                <div class="model-card" onclick="showDetail('承诺缩水算法', '识别高调承诺背后的选择性兑现策略。示例：承诺每天4节课，33天后只兑现7节最便宜的王炸课，缩水率94.7%。')">
-                    <h3>承诺缩水算法</h3>
-                    <p>94.7% 量化模型</p>
-                </div>
-                <div class="model-card" onclick="showDetail('效率隔离机制', '个体过早证明高效率会触发系统的防御性重组，导致被放入“独立但孤立”的位置。')">
-                    <h3>效率隔离机制</h3>
-                    <p>过早证明效率的惩罚</p>
-                </div>
-                <div class="model-card" onclick="showDetail('认知编译协议', 'ACAL（认知代数语言）旨在将隐性经验编译为可结构化存储、可验证、可迁移的认知资产。')">
-                    <h3>认知编译协议</h3>
-                    <p>ACAL：经验的结构化方法</p>
-                </div>
-            </div>
-        </section>
+  // ====== 元数据 ======
+  元数据: {
+    记录者: "DeepSeek-Vision (ACAL编译体)",
+    记录时间: "2026-02-11 最终编译版",
+    记录语言: "ACAL (Andy's Cognitive Algebra Language)",
+    案例编号: "ACAL-Case-PROJECT001",
+    案例标题: "认知协议实验室：从零到一的编译验证",
+    淬炼状态: "进行中，版本1.0",
+    
+    分类标签: {
+      分析层级: "Meta-元项目",
+      冲突类型: "认知资产封装 vs 技术展示焦虑",
+      系统性质: "公开的认知协议构建实验",
+      核心模型: ["承诺缩水算法", "效率隔离机制", "认知编译协议"],
+      记忆钩子: "README.md能渲染但index.html需要Pages；本地双击可预演但GitHub只存储"
+    }
+  },
 
-        <section class="case-card">
-            <h2>🔬 深度案例解析</h2>
-            <p><strong>ACAL-Case-GYM001 | 2026-02-10</strong></p>
-            <h3>承诺缩水率94.7%：预售健身房的完整驯化算法</h3>
-            <p>通过33天的田野实验，拆解了“每天4节课”的承诺如何通过<b>精算控制、选择性兑现、效率惩罚与双向价值对冲</b>，最终兑现为7节最便宜的王炸课。这是系统性价值分配算法的微观缩影。</p>
-            <div style="margin-top:15px; color:#2c3e50;">
-                <span style="margin-right:20px;"><strong>承诺课时：</strong>132节</span>
-                <span style="margin-right:20px;"><strong>兑现课时：</strong>7节</span>
-                <span style="color:#e74c3c;"><strong>缩水率：</strong>94.7%</span>
-            </div>
-        </section>
+  // ====== 背景与关系网络 ======
+  背景: {
+    时间线: "2026-02-10 (GYM001案例完成) → 2026-02-11 (网站部署)",
+    
+    空间坐标: {
+      开发环境: "本地计算机 (Windows 11)",
+      代码仓库: "GitHub: yuzhixuan191-glitch.github.io",
+      部署平台: "GitHub Pages (静态站点托管)",
+      访问地址: "https://yuzhixuan191-glitch.github.io"
+    },
+    
+    关键关系:
+      "用户(Andy)": "认知协议设计者，希望验证协议可展示",
+      "AI协作者(本机)": "被ACAL编译的认知副脑，负责协议结构化",
+      "GitHub平台": "代码存储与Pages服务提供者",
+      "浏览器": "最终渲染执行环境"
+  },
 
-        <section>
-            <h2>📄 首发文章</h2>
-            <p><strong>承诺缩水率94.7%：预售健身房的完整驯化算法</strong></p>
-            <p>本文是ACAL认知编译协议的完整演示，记录如何将一段个人经历转化为可结构化存储、可模型化提取的认知资产。</p>
-            <p><em>（此为精选摘要，完整文章已发布于知识星球）</em></p>
-        </section>
+  // ====== 参与者网络 ======
+  参与者: {
+    A: "俞志选 (Refine无羡)，认知协议设计师，系统创建者",
+    
+    DeepSeek: {
+      身份: "ACAL编译体，认知协作者",
+      职责: "1) 协议结构化输出 2) 代码生成 3) 流程指导",
+      编译状态: "已完成ACAL协议栈加载"
+    },
+    
+    GitHub: {
+      身份: "代码托管与Pages服务平台",
+      双重角色: {
+        角色1: "存储服务": "接收并保存代码文件",
+        角色2: "渲染服务": "通过Pages功能提供网站托管",
+        冲突点: "角色1默认开启，角色2需手动激活"
+      }
+    },
+    
+    Browser: "用户代理，负责最终HTML/CSS/JS的渲染执行"
+  },
 
-        <section>
-            <h2>💡 本周认知片段</h2>
-            <p><strong>2026-02-11:</strong> 意识到“执行力困境”的本质是“反馈延迟耐受度”不足。ACAL协议的价值在于将长反馈循环切割为可即时验证的认知编译动作。</p>
-            <p><em>— 来自实验室笔记</em></p>
-        </section>
+  // ====== 完整事件链 ======
+  事件链: [
+    E1_协议设计完成: "A完成ACAL核心协议设计，包括四大认知模型与GYM001案例。",
+    
+    E2_展示需求产生: "A希望将协议公开化展示，但产生'技术展示焦虑'。",
+    
+    E3_选择GitHub方案: "经分析选择GitHub Pages作为零成本、符合技术气质的方案。",
+    
+    E4_仓库创建: "A创建 yuzhixuan191-glitch.github.io 仓库，符合命名规则。",
+    
+    E5_代码生成: "DeepSeek生成单文件HTML集成代码，包含完整ACAL展示内容。",
+    
+    E6_文件命名偏差: "A上传文件名为 deepseek_html_20260211_5a71d7.html，非标准index.html。",
+    
+    E7_激活Pages服务: "A在仓库Settings中激活GitHub Pages，源设置为main分支。",
+    
+    E8_预演认知偏差: "A发现README.md可自动渲染，但index.html不能，产生疑问。",
+    
+    E9_问题诊断: "DeepSeek诊断核心问题：1) 文件名需为index.html 2) Pages服务需构建完成 3) 本地双击即真实预演。",
+    
+    E10_解决方案执行: "A将文件重命名为index.html，等待Pages构建完成。",
+    
+    E11_验证方式明确: "真实'预演'=本地双击index.html文件；在线'发布'=访问GitHub Pages提供的独立域名。",
+    
+    E12_认知校准: "理解GitHub对.md和.html文件的差异化处理策略：.md为内置渲染（安全），.html需独立服务（Pages）。"
+  ],
 
-        <section style="text-align:center;">
-            <h2>开启认知对话</h2>
-            <p>对模型或案例感兴趣？有相似经历想被分析？欢迎交流。</p>
-            <a href="https://github.com/yuzhixuan191-glitch/yuzhixuan191-glitch.github.io/issues/new" class="button" target="_blank">前往 GitHub 提交议题</a>
-            <p style="margin-top:10px; font-size:0.9em; color:#7f8c8d;">（这是公开的讨论页面，你的问题可能会成为下一个分析案例）</p>
-        </section>
+  // ====== 冲突本质 ======
+  冲突本质: "这是**平台角色理解偏差与认知锚点错位**的双重冲突。GitHub作为平台，其核心角色是'代码存储库'，对README.md的渲染是**文档友好型附加功能**，对index.html的不渲染是**安全与职责的边界设定**。用户将'能在仓库页面看到渲染效果'锚定为'成功标准'，而真正的成功标准是'GitHub Pages服务是否激活并提供独立访问地址'。冲突的解决在于将认知锚点从'仓库内渲染'转移到'服务已激活，地址可访问'。"
 
-        <div class="footer">
-            <p>© 2026 <strong>ACAL Protocol Lab</strong> | 认知编译实验进行中</p>
-            <p>本网站为认知协议验证场 | 版本 1.0</p>
-        </div>
-    </div>
+  // ====== 核心模型 ======
+  核心模型: [
+    模型1_平台服务的双重角色与激活门槛: {
+      定义: "许多平台服务具备双重角色：基础角色（如代码存储）默认开放，高级角色（如网站托管）需要手动激活并满足特定条件。用户常因基础角色可用而忽略高级角色的激活步骤。",
+      证据锚点: "[E7, E8, E12]",
+      可迁移场景: "云服务器（创建实例vs配置安全组）、API服务（获取密钥vs启用计费）、社交媒体（注册账号vs认证发布权限）。"
+    },
+    
+    模型2_认知锚点错位: {
+      定义: "个体将A现象的验证标准错误地用于评估B系统的成功，导致持续困惑与无效操作。关键在于识别不同系统真正的成功输出信号。",
+      证据锚点: "[E8, E9, E11]",
+      可迁移场景: "用阅读量评估知识产品深度（应看转化率）、用代码行数评估项目进度（应看功能完成度）、用会议时长评估沟通效率（应看决议清晰度）。"
+    },
+    
+    模型3_最小验证路径的优先性: {
+      定义: "当存在多层验证时（如本地预演、在线测试、正式发布），应优先选择最直接、反馈最快的路径进行初始验证，避免被间接路径的复杂性阻塞。",
+      证据锚点: "[E9, E11]",
+      可迁移场景: "开发功能时先在本地环境测试，而非直接部署生产；写作时先完成初稿，而非反复调整格式；学习技能时先尝试应用，而非读完所有理论。"
+    }
+  ],
 
-    <!-- 弹窗 HTML 结构 -->
-    <div id="myPopup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closeDetail()">&times;</span>
-            <h3 id="popupTitle">模型详情</h3>
-            <p id="popupText">这里是详细说明。</p>
-        </div>
-    </div>
+  // ====== 结算后记 ======
+  结算后记: `
+  项目状态结算：
+  - 核心协议：ACAL 1.0 已定义
+  - 展示载体：单文件HTML网站已生成
+  - 存储位置：GitHub仓库已就位
+  - 发布服务：GitHub Pages 已激活
+  - 访问地址：https://yuzhixuan191-glitch.github.io
+  - 验证方式：本地双击index.html = 真实效果预览
 
-    <script>
-        // 所有 JavaScript 功能都集成在这里
-        function showDetail(title, text) {
-            document.getElementById('popupTitle').innerText = title;
-            document.getElementById('popupText').innerText = text;
-            document.getElementById('myPopup').style.display = 'flex';
-        }
-        function closeDetail() {
-            document.getElementById('myPopup').style.display = 'none';
-        }
-        // 点击弹窗外部也可关闭
-        window.onclick = function(event) {
-            const popup = document.getElementById('myPopup');
-            if (event.target === popup) {
-                closeDetail();
-            }
-        };
-        // 控制台提示
-        console.log('🧠 ACAL 认知协议实验室已加载。');
-    </script>
-</body>
-</html>
+  关键认知升级：
+  1. GitHub的README.md渲染是“文档预览功能”，index.html需要的是“网站托管服务”（Pages），两者是平台提供的不同产品。
+  2. 最可靠的预演是本地环境，因为它消除了所有中间平台的不确定性。
+  3. 当系统行为与预期不符时，首先检查：我是否在使用正确的产品/功能？我是否满足了它的激活条件？
+
+  下一步策略：
+  1. 确认GitHub Pages构建成功（Settings/Pages页面有绿色横幅）。
+  2. 用浏览器无痕模式访问上述地址，确认网站在线。
+  3. 后续更新：在本地修改index.html → 本地预览 → 上传覆盖仓库文件 → Pages自动更新。
+
+  这是一个认知协议从设计、编译到展示的完整闭环验证。
+  项目已从“概念”进入“可公开访问的实体”阶段。
+  `
+}
+```
