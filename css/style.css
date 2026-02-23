@@ -1009,3 +1009,185 @@ ul, ol {
         border: 1px solid #ddd;
     }
 }
+
+/* ===== 动画效果 ===== */
+
+/* 1. 导航水波纹 - mustenergy 风格 */
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.nav-item:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.nav-item:hover {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* 2. 按钮悬停动画 */
+.link-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.link-button:hover::before {
+    left: 100%;
+}
+
+.link-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.link-button:hover svg,
+.link-button:hover i {
+    transform: translateX(5px) rotate(10deg);
+}
+
+/* 3. 卡片悬停动画 */
+.chapter {
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+}
+
+.chapter:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-blue);
+}
+
+.chapter-header {
+    transition: background 0.3s ease;
+}
+
+.chapter:hover .chapter-header {
+    background: rgba(30, 41, 59, 1);
+}
+
+/* 4. 标题渐变动画 */
+.header h1 {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-blue));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 5. 章节图标脉冲效果 */
+.chapter-icon {
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+/* 6. 内容淡入动画 */
+.chapter-content.expanded {
+    animation: slideFadeIn 0.5s ease;
+}
+
+@keyframes slideFadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* 7. 回到顶部按钮动画 */
+.back-to-top {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.back-to-top:hover {
+    transform: scale(1.1) rotate(360deg);
+    background: var(--gradient-accent);
+}
+
+/* 8. 进度条光效 */
+.progress-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 9. 导航栏滚动动画 */
+.nav-container {
+    transition: all 0.3s ease;
+}
+
+.nav-container.scrolled {
+    backdrop-filter: blur(15px);
+    background: rgba(15, 23, 42, 0.98);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 10. 表格行悬停 */
+.article-content tr {
+    transition: all 0.2s ease;
+}
+
+.article-content tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
