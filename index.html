@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
- <link rel="stylesheet" href="css/style.css">
+<head> <!-- 补全缺失的head起始标签 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACAL认知宇宙</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- 1. 阅读进度条（JS依赖） -->
+    <div class="progress-bar"></div>
+
+    <!-- 2. 回到顶部按钮（JS依赖） -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
     <div class="container">
         <!-- 头部 -->
         <div class="header">
@@ -20,6 +30,12 @@
                 <a href="#chapter-structure" class="nav-item">🏗️ 结构解析</a>
                 <a href="#chapter-works" class="nav-item">📚 作品集</a>
             </div>
+        </div>
+
+        <!-- 3. 全部展开/折叠按钮（JS依赖） -->
+        <div class="chapter-control">
+            <button class="control-btn" onclick="expandAll()">📢 全部展开</button>
+            <button class="control-btn" onclick="collapseAll()">🔒 全部折叠</button>
         </div>
         
         <!-- 艺术之魂 -->
@@ -543,7 +559,8 @@
             </div>
         </div>
     </div>
-  <script src="js/main.js"></script>
-</body>
 
+    <!-- JS文件引入（确保路径正确） -->
+    <script src="js/main.js"></script>
+</body>
 </html>
