@@ -221,3 +221,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initConsoleEasterEgg();
 });
+
+// 导航滚动效果增强
+function initNavScroll() {
+    const nav = document.querySelector('.nav-container');
+    if (!nav) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+}
+
+// 页面加载完成后执行
+document.addEventListener('DOMContentLoaded', function() {
+    initNavScroll();
+    // ... 其他初始化
+});
