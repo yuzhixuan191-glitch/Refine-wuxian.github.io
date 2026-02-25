@@ -285,36 +285,8 @@ function initContactForm() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // 获取表单数据
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // 简单验证
-            if (!name || !email || !message) {
-                alert('请填写所有必填字段');
-                return;
-            }
-            
-            // 模拟表单提交
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = '发送中...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                submitBtn.textContent = '发送成功！';
-                
-                // 重置表单
-                setTimeout(function() {
-                    contactForm.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            }, 1500);
+            // 表单验证已通过HTML的required属性处理
+            // Formspree会处理实际的提交
         });
     }
 }
