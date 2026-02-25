@@ -197,14 +197,86 @@ function initChapterCards() {
             // 切换卡片激活状态
             chapterCards.forEach(c => c.classList.remove('active'));
             this.classList.add('active');
-            
-            // 卡片展开动画
-            const content = this.querySelector('.chapter-content');
-            const readMoreBtn = this.querySelector('.read-more');
-            
-            // 阅读全文按钮已改为链接，无需点击事件监听
         });
     });
+    
+    // 创建弹窗元素
+    createModal();
+    
+    // 展开全文按钮交互
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // 阻止事件冒泡
+            
+            const card = this.closest('.chapter-card');
+            const title = card.querySelector('.article-title').textContent;
+            const meta = card.querySelector('.article-meta').innerHTML;
+            const content = card.querySelector('.article-excerpt').innerHTML;
+            
+            // 打开弹窗
+            openModal(title, meta, content);
+        });
+    });
+}
+
+// 创建弹窗元素
+function createModal() {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.id = 'contentModal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <div class="modal-meta"></div>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // 关闭弹窗事件
+    const closeBtn = modal.querySelector('.modal-close');
+    closeBtn.addEventListener('click', closeModal);
+    
+    // 点击弹窗外部关闭
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // 按ESC键关闭
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+}
+
+// 打开弹窗
+function openModal(title, meta, content) {
+    const modal = document.getElementById('contentModal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalMeta = modal.querySelector('.modal-meta');
+    const modalBody = modal.querySelector('.modal-body');
+    
+    modalTitle.textContent = title;
+    modalMeta.innerHTML = meta;
+    modalBody.innerHTML = content;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+}
+
+// 关闭弹窗
+function closeModal() {
+    const modal = document.getElementById('contentModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // 恢复背景滚动
 }
 
 // 联系表单处理
