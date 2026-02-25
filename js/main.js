@@ -6,75 +6,37 @@
 // DOM加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化所有功能
-    initNavbar();
+    initHeader();
     initParticles();
     initParallax();
     initBackToTop();
-    initChapterCards();
     initContactForm();
     initScrollAnimations();
     initConsoleEasterEgg();
 });
 
-// 导航栏功能
-function initNavbar() {
-    const navbar = document.querySelector('.navbar');
-    const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarNav = document.querySelector('.navbar-nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+// 头部功能
+function initHeader() {
     // 滚动效果
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // 移动端菜单切换
-    navbarToggle.addEventListener('click', function() {
-        navbarNav.classList.toggle('active');
-        
-        // 汉堡菜单动画
-        const toggleIcons = document.querySelectorAll('.toggle-icon');
-        toggleIcons.forEach((icon, index) => {
-            if (navbarNav.classList.contains('active')) {
-                if (index === 0) {
-                    icon.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                } else if (index === 1) {
-                    icon.style.opacity = '0';
-                } else if (index === 2) {
-                    icon.style.transform = 'rotate(-45deg) translate(5px, -5px)';
-                }
+        const header = document.querySelector('.header');
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
             } else {
-                icon.style.transform = 'none';
-                icon.style.opacity = '1';
+                header.classList.remove('scrolled');
             }
-        });
-    });
-    
-    // 导航链接点击
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // 关闭移动端菜单
-            navbarNav.classList.remove('active');
-            const toggleIcons = document.querySelectorAll('.toggle-icon');
-            toggleIcons.forEach(icon => {
-                icon.style.transform = 'none';
-                icon.style.opacity = '1';
-            });
-            
-            // 激活当前链接
-            navLinks.forEach(item => item.classList.remove('active'));
-            this.classList.add('active');
-        });
+        }
     });
 }
 
 // 粒子系统
 function initParticles() {
-    const particlesContainer = document.querySelector('.particles-container');
+    // 创建粒子容器
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles-container';
+    document.body.appendChild(particlesContainer);
+    
     const particleCount = 100;
     
     for (let i = 0; i < particleCount; i++) {
@@ -143,6 +105,19 @@ function getRandomColor() {
 
 // 视差滚动效果
 function initParallax() {
+    // 创建视差容器
+    const parallaxContainer = document.createElement('div');
+    parallaxContainer.className = 'parallax-bg';
+    
+    // 创建视差层
+    for (let i = 1; i <= 3; i++) {
+        const layer = document.createElement('div');
+        layer.className = `parallax-layer layer-${i}`;
+        parallaxContainer.appendChild(layer);
+    }
+    
+    document.body.appendChild(parallaxContainer);
+    
     const parallaxLayers = document.querySelectorAll('.parallax-layer');
     
     window.addEventListener('scroll', function() {
@@ -170,7 +145,11 @@ function initParallax() {
 
 // 回到顶部按钮
 function initBackToTop() {
-    const backToTopBtn = document.querySelector('.back-to-top');
+    // 创建回到顶部按钮
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '↑';
+    document.body.appendChild(backToTopBtn);
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 300) {
@@ -188,97 +167,6 @@ function initBackToTop() {
     });
 }
 
-// 章节卡片交互
-function initChapterCards() {
-    const chapterCards = document.querySelectorAll('.chapter-card');
-    
-    chapterCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // 切换卡片激活状态
-            chapterCards.forEach(c => c.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-    
-    // 创建弹窗元素
-    createModal();
-    
-    // 展开全文按钮交互
-    const readMoreBtns = document.querySelectorAll('.read-more-btn');
-    
-    readMoreBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation(); // 阻止事件冒泡
-            
-            const card = this.closest('.chapter-card');
-            const title = card.querySelector('.article-title').textContent;
-            const meta = card.querySelector('.article-meta').innerHTML;
-            const content = card.querySelector('.article-excerpt').innerHTML;
-            
-            // 打开弹窗
-            openModal(title, meta, content);
-        });
-    });
-}
-
-// 创建弹窗元素
-function createModal() {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.id = 'contentModal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <div class="modal-meta"></div>
-            </div>
-            <div class="modal-body"></div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    
-    // 关闭弹窗事件
-    const closeBtn = modal.querySelector('.modal-close');
-    closeBtn.addEventListener('click', closeModal);
-    
-    // 点击弹窗外部关闭
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
-    
-    // 按ESC键关闭
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-}
-
-// 打开弹窗
-function openModal(title, meta, content) {
-    const modal = document.getElementById('contentModal');
-    const modalTitle = modal.querySelector('.modal-title');
-    const modalMeta = modal.querySelector('.modal-meta');
-    const modalBody = modal.querySelector('.modal-body');
-    
-    modalTitle.textContent = title;
-    modalMeta.innerHTML = meta;
-    modalBody.innerHTML = content;
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 防止背景滚动
-}
-
-// 关闭弹窗
-function closeModal() {
-    const modal = document.getElementById('contentModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // 恢复背景滚动
-}
-
 // 联系表单处理
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form form');
@@ -293,7 +181,7 @@ function initContactForm() {
 
 // 滚动动画
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.section-header, .chapter-card, .feature-item');
+    const animatedElements = document.querySelectorAll('.profile-content, .contact-content, .goal-item, .mission-item');
     
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {

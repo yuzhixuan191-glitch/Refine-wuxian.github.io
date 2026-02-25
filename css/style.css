@@ -805,21 +805,192 @@ body {
 }
 
 /* --------------------------------------------
-   8. 联系区域
+   8. 个人资料区域
    -------------------------------------------- */
-.contact-section {
+.profile {
     padding: var(--space-4xl) 0;
     position: relative;
 }
 
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+.profile-content {
     background: rgba(19, 28, 43, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(30, 41, 59, 0.5);
     border-radius: var(--radius-xl);
     padding: var(--space-3xl);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.profile-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--text-light);
+}
+
+.profile-location {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+}
+
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.tag {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: var(--radius-full);
+    padding: var(--space-sm) var(--space-lg);
+    color: var(--accent-blue);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.profile-goals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.goal-item {
+    background: rgba(10, 15, 26, 0.3);
+    border: 1px solid rgba(30, 41, 59, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.goal-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+}
+
+.goal-year {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    color: var(--text-light);
+}
+
+.goal-content {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.profile-missions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.mission-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    padding: var(--space-xl);
+    background: rgba(10, 15, 26, 0.3);
+    border: 1px solid rgba(30, 41, 59, 0.3);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+}
+
+.mission-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-blue);
+}
+
+.mission-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    min-width: 30px;
+}
+
+.mission-content {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --------------------------------------------
+   9. 联系区域
+   -------------------------------------------- */
+.contact {
+    padding: var(--space-4xl) 0;
+    position: relative;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+}
+
+.contact-info {
+    background: rgba(19, 28, 43, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 41, 59, 0.5);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+}
+
+.contact-info-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    color: var(--text-light);
+}
+
+.contact-info-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.contact-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.contact-form {
+    background: rgba(19, 28, 43, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 41, 59, 0.5);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+}
+
+.contact-form-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    color: var(--text-light);
 }
 
 .form-group {
@@ -855,6 +1026,23 @@ body {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--text-muted);
+}
+
+.submit-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--space-lg) var(--space-2xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-base);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
 /* --------------------------------------------
@@ -1342,18 +1530,78 @@ body {
         font-size: 0.875rem;
     }
     
-    .contact-section {
+    .profile {
         padding: var(--space-3xl) 0;
     }
     
-    .contact-form {
+    .profile-content {
         padding: var(--space-lg);
         margin: 0 var(--space-md);
+    }
+    
+    .profile-title {
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+    }
+    
+    .profile-tags {
+        gap: var(--space-sm);
+    }
+    
+    .tag {
+        padding: var(--space-xs) var(--space-md);
+        font-size: 0.75rem;
+    }
+    
+    .profile-goals {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .goal-item {
+        padding: var(--space-lg);
+    }
+    
+    .mission-item {
+        padding: var(--space-lg);
+        gap: var(--space-md);
+    }
+    
+    .mission-number {
+        font-size: 1.25rem;
+    }
+    
+    .mission-content {
+        font-size: 0.875rem;
+    }
+    
+    .contact {
+        padding: var(--space-3xl) 0;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        padding: 0 var(--space-md);
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: var(--space-lg);
+    }
+    
+    .contact-info-title,
+    .contact-form-title {
+        font-size: 1.125rem;
     }
     
     .form-group input,
     .form-group textarea {
         padding: var(--space-md);
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
+        padding: var(--space-md) var(--space-xl);
         font-size: 0.95rem;
     }
     
@@ -1387,6 +1635,15 @@ body {
     
     .footer-social {
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-social .social-link {
+        width: auto;
+        height: auto;
+        border-radius: var(--radius-lg);
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-xs);
     }
     
     .social-link {
