@@ -1061,53 +1061,34 @@ body {
     margin-bottom: var(--space-2xl);
 }
 
-.footer-brand h3 {
+.footer-info h3 {
     font-size: 1.25rem;
     font-weight: 800;
     margin-bottom: var(--space-md);
     color: var(--text-light);
 }
 
-.footer-brand p {
+.footer-info p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
 
-.footer-links {
+.footer-social {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
 }
 
-.footer-links a {
+.social-link {
+    display: inline-block;
     color: var(--text-muted);
     text-decoration: none;
     transition: var(--transition-base);
     font-size: 0.95rem;
-}
-
-.footer-links a:hover {
-    color: var(--accent-blue);
-    transform: translateX(5px);
-}
-
-.footer-social {
-    display: flex;
-    gap: var(--space-md);
-}
-
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(10, 15, 26, 0.5);
-    border: 1px solid rgba(30, 41, 59, 0.5);
-    border-radius: 50%;
-    color: var(--text-muted);
-    transition: var(--transition-base);
-    text-decoration: none;
+    padding: var(--space-sm);
+    border-radius: var(--radius-lg);
+    background: rgba(10, 15, 26, 0.3);
+    border: 1px solid rgba(30, 41, 59, 0.3);
 }
 
 .social-link:hover {

@@ -303,6 +303,48 @@ function initConsoleEasterEgg() {
     console.log('%c🌐 响应式设计，适配所有设备', 'color: #10b981; font-size: 14px;');
 }
 
+// 章节展开/折叠功能
+function toggleChapter(header) {
+    const content = header.nextElementSibling;
+    const btn = header.querySelector('.toggle-btn');
+    
+    if (content.style.display === 'none' || !content.style.display) {
+        content.style.display = 'block';
+        btn.textContent = '▲';
+    } else {
+        content.style.display = 'none';
+        btn.textContent = '▼';
+    }
+}
+
+// 全部展开功能
+function expandAll() {
+    const chapters = document.querySelectorAll('.chapter-content');
+    const buttons = document.querySelectorAll('.toggle-btn');
+    
+    chapters.forEach(content => {
+        content.style.display = 'block';
+    });
+    
+    buttons.forEach(btn => {
+        btn.textContent = '▲';
+    });
+}
+
+// 全部折叠功能
+function collapseAll() {
+    const chapters = document.querySelectorAll('.chapter-content');
+    const buttons = document.querySelectorAll('.toggle-btn');
+    
+    chapters.forEach(content => {
+        content.style.display = 'none';
+    });
+    
+    buttons.forEach(btn => {
+        btn.textContent = '▼';
+    });
+}
+
 // 平滑滚动
 function smoothScroll(target) {
     const element = document.querySelector(target);
