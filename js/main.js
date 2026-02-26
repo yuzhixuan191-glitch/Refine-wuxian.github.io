@@ -319,7 +319,8 @@ function initConsoleEasterEgg() {
 
 // 章节展开/折叠功能
 function toggleChapter(header) {
-    const content = header.nextElementSibling;
+    const card = header.closest('.chapter-card');
+    const content = card.querySelector('.chapter-content');
     const btn = header.querySelector('.toggle-btn');
     
     if (content.style.display === 'none' || !content.style.display) {
@@ -402,4 +403,42 @@ window.addEventListener('load', function() {
     // 显示页面内容
     const content = document.querySelector('body');
     content.style.opacity = '1';
+});
+
+// 搜索功能
+function initSearch() {
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+    const chapterCards = document.querySelectorAll('.chapter-card');
+    
+    if (searchInput && searchBtn) {
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            chapterCards.forEach(card => {
+                const cardContent = card.textContent.toLowerCase();
+                if (cardContent.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                } else {
+                    card.style.display = searchTerm ? 'none' : 'block';
+                    card.style.opacity = searchTerm ? '0' : '1';
+                    card.style.transform = searchTerm ? 'translateY(30px)' : 'translateY(0)';
+                }
+            });
+        }
+        
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
+}
+
+// 初始化搜索功能
+document.addEventListener('DOMContentLoaded', function() {
+    initSearch();
 });
