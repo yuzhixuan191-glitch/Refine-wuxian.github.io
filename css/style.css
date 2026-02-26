@@ -703,6 +703,40 @@ body {
     font-size: 1.05rem;
 }
 
+.about-contact {
+    background: rgba(10, 15, 26, 0.3);
+    border: 1px solid rgba(30, 41, 59, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    transition: var(--transition-base);
+}
+
+.about-contact:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.about-contact h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    color: var(--text-light);
+}
+
+.about-contact p {
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.about-contact p:last-child {
+    margin-bottom: 0;
+}
+
 .about-features {
     display: grid;
     grid-template-columns: 1fr;
