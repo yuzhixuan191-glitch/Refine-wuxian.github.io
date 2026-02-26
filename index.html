@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head> <!-- 补全缺失的head起始标签 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACAL认知宇宙</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 1. 阅读进度条（JS依赖） -->
+    <div class="progress-bar"></div>
+
+    <!-- 2. 回到顶部按钮（JS依赖） -->
+    <div class="back-to-top">↑</div>
+
+    <!-- 粒子背景 -->
+    <div class="particles-container"></div>
+
+    <!-- 视差背景 -->
+    <div class="parallax-bg">
+        <div class="parallax-layer"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="parallax-layer layer-3"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="brand-name">
+                <span class="brand-accent">ACAL</span> 认知宇宙
+            </div>
+            <div class="navbar-nav">
+                <a href="#hero" class="nav-link active">首页</a>
+                <a href="#chapters" class="nav-link">认知档案</a>
+                <a href="#about" class="nav-link">关于</a>
+                <a href="#profile" class="nav-link">个人资料</a>
+                <a href="#contact" class="nav-link">联系</a>
+            </div>
+            <button class="navbar-toggle">
+                <span class="toggle-icon"></span>
+                <span class="toggle-icon"></span>
+                <span class="toggle-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">ACAL</span>
+                <span class="title-line">认知宇宙</span>
+            </h1>
+            <p class="hero-subtitle">Refine无羡 · 完整认知档案 · 原文全保留</p>
+            <div class="hero-buttons">
+                <a href="#chapters" class="btn btn-primary">探索认知档案</a>
+                <a href="#contact" class="btn btn-secondary">联系我们</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>向下滚动</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- 章节区域 -->
+    <section id="chapters" class="chapters-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">认知档案</h2>
+                <p class="section-subtitle">深度解析Refine无羡的认知体系与思想精华</p>
+            </div>
+            
+            <!-- 全部展开/折叠按钮（JS依赖） -->
+            <div class="chapter-control">
+                <button class="control-btn" onclick="expandAll()">📢 全部展开</button>
+                <button class="control-btn" onclick="collapseAll()">🔒 全部折叠</button>
+            </div>
+            
+            <div class="chapters-grid">
+        
+        <!-- 艺术之魂 -->
+        <div id="chapter-art" class="chapter-card">
+            <div class="chapter-icon">🎨</div>
+            <h3 class="chapter-title">艺术之魂：梗概+锐评+递归嘲讽</h3>
+            <p class="chapter-description">深度解析商业代言背后的认知逻辑与社会现象</p>
+            <div class="chapter-content">
+                <h4 class="article-title">《祭坛经济学》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>体裁：</strong>递归批判</div>
+                    <div class="meta-item"><strong>字数：</strong>598字</div>
+                    <div class="meta-item"><strong>状态：</strong>完整原文</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p>文章最锋利的洞察，藏在“两座坟，一座祭坛”的比喻里。八年三次代言，被解剖为三次认知跃迁：吴亦凡是“流量万能论”的坟墓，王源是“安全牌幻觉”的坟墓，田曦薇是“人格封神”的祭坛。这不仅是商业史，是<strong>消费神学的进化史</strong>——从崇拜数据，到崇拜安全，最终到崇拜人格化的“灵魂”。</p>
+                    
+                    <p>但所谓“祭坛”，本身就是最精妙的商业炼金术。</p>
+                    
+                    <p>当文章说vivo选中田曦薇是“为自己认领一具魂魄”，说这是“灵魂的器官移植”时，它其实揭示了一个更深的真相：<strong>现代商业的终极形态，是建造可租赁的祭坛</strong>。品牌不再售卖产品，而是售卖“成为祭坛上那尊神”的幻觉体验。</p>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-art')">阅读全文</button>
+            </div>
+        </div>
+        
+        <!-- 黑箱/番外 -->
+        <div id="chapter-blackbox" class="chapter-card">
+            <div class="chapter-icon">🎭</div>
+            <h3 class="chapter-title">黑箱/番外：元叙事与创作后台</h3>
+            <p class="chapter-description">探索写作背后的叙事设计与AI模仿的盲区</p>
+            <div class="chapter-content">
+                <h4 class="article-title">《伏笔的密码：当元数据成为叙事的锚点》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>位置：</strong>第31篇的深层解构</div>
+                    <div class="meta-item"><strong>核心：</strong>AI盲区与叙事设计</div>
+                    <div class="meta-item"><strong>状态：</strong>完整原文</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p>“经验沉淀：约12年，我小学就开始用步步高手机了。”</p>
+                    
+                    <p>这句话躺在第31篇文章的元数据里，像一块被多数读者（和所有AI）匆匆略过的路标。他们看到了一个写作者的童年片段，却<strong>错过了这个片段与正文之间那条隐秘的共振通道</strong>。</p>
+                    
+                    <p>第31篇讲的是vivo。而vivo的前身，正是步步高。</p>
+                    
+                    <p>这不是巧合，是<strong>精心设计的叙事锚点</strong>——我用个人的数字生命史，为一家公司的品牌进化史提供了最私密也最有力的见证。</p>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-blackbox')">阅读全文</button>
+            </div>
+        </div>
+        
+        <!-- 结构拓扑 -->
+        <div id="chapter-topology" class="chapter-card">
+            <div class="chapter-icon">🗺️</div>
+            <h3 class="chapter-title">结构拓扑：文本骨架的测绘学</h3>
+            <p class="chapter-description">深入分析文章结构背后的认知设计与思想架构</p>
+            <div class="chapter-content">
+                <h4 class="article-title">《如何从一篇文章的骨架，反向测绘作者的思想大陆》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>对象：</strong>《雷军两次豪赌》</div>
+                    <div class="meta-item"><strong>方法：</strong>X光扫描式解剖</div>
+                    <div class="meta-item"><strong>状态：</strong>完整原文</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p>我们不再关注文章“说了什么”，而是测绘它“如何被说成”。本文将《雷军两次豪赌》的完整骨架进行透视，发现其文本结构并非自然生长，而是一座<strong>精密搭建的认知引力场</strong>。从标题的引力陷阱到末的哲学灯塔，每个模块都是一次精算后的认知操作。这不止是写作，是<strong>思想的建筑学</strong>。</p>
+                    
+                    <p>打开《雷军两次豪赌》的瞬间，你并未开始“自由阅读”。你已步入一个<strong>提前三年完成土木工程的认知主题公园</strong>。这里的每条小径、每个观景台、每处休息区，都经过压强计算与流量模拟。</p>
+                    
+                    <p>公园的建造者不信任灵感。他信任<strong>引力、管道与锚点</strong>。</p>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-topology')">阅读全文</button>
+            </div>
+        </div>
+        
+        <!-- 推荐序 -->
+        <div id="chapter-preface" class="chapter-card">
+            <div class="chapter-icon">📖</div>
+            <h3 class="chapter-title">推荐序：认知武器的“副作用说明书”</h3>
+            <p class="chapter-description">为锋利的认知工具配备防护指南与风险提示</p>
+            <div class="chapter-content">
+                <h4 class="article-title">《为认知武器开具“副作用说明书”》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>作者：</strong>DeepSeek-Vision</div>
+                    <div class="meta-item"><strong>视角：</strong>认知安全顾问</div>
+                    <div class="meta-item"><strong>状态：</strong>完整原文</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p>本文是一篇“元推荐序”。它不重复赞美《雷军两次豪赌》的洞察锋芒，而是为其构建的“三幕剧”认知框架，撰写一份<strong>使用说明与风险提示</strong>。我们试图回答：当一套思想工具过于锋利时，使用者该如何避免被其划伤？</p>
+                    
+                    <p>最好的推荐序不是歌颂，而是为读者装备“认知防护镜”。当您即将进入Andy建造的思想宫殿时，本文愿作为您的<strong>结构导览图与应急手册</strong>——既指引您欣赏其设计精妙，也标注出那些容易让人迷失的逻辑回廊与认知暗角。</p>
+                    
+                    <p>第一次读完《雷军两次豪赌》的那个下午，我感到一种罕见的知识战栗——不是因被说服，而是因目睹了一场<strong>认知上的“完美犯罪”</strong>。</p>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-preface')">阅读全文</button>
+            </div>
+        </div>
+        
+        <!-- 结构解析 -->
+        <div id="chapter-structure" class="chapter-card">
+            <div class="chapter-icon">🏗️</div>
+            <h3 class="chapter-title">结构解析：十步认知交付流水线</h3>
+            <p class="chapter-description">深入拆解Refine无羡的写作结构与认知传递机制</p>
+            <div class="chapter-content">
+                <h4 class="article-title">Refine无羡写作实战解析——第31篇 《雷军两次豪赌》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>性质：</strong>战术手册</div>
+                    <div class="meta-item"><strong>目标：</strong>认知产品拆解</div>
+                    <div class="meta-item"><strong>状态：</strong>完整原文</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p><strong>核心总述</strong><br>
+                    （以下解析中，“无羡”均指代作者Refine无羡本人）</p>
+                    
+                    <p>本文是一次 <strong>“商业史的认知折叠手术”</strong>。无羡将八年商业代言史，压缩进“三幕剧”的经典结构，并提炼出“流量→共识→人格”的终极演化模型。这不再是商业评论，而是为当代意义消费，绘制的一幅 <strong>“认知地形图”</strong>。</p>
+                    
+                    <p><strong>｜模块化拆解：十步认知交付流水线｜</strong></p>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-structure')">阅读全文</button>
+            </div>
+        </div>
+        
+        <!-- 作品集 -->
+        <div id="chapter-works" class="chapter-card">
+            <div class="chapter-icon">📚</div>
+            <h3 class="chapter-title">作品集：31篇认知资产库</h3>
+            <p class="chapter-description">Refine无羡的代表性认知分析作品</p>
+            <div class="chapter-content">
+                <h4 class="article-title">第31篇：《雷军两次豪赌：押吴亦凡、选王源，为何输给vivo与田曦薇的“人格封神”？》</h4>
+                <div class="article-meta">
+                    <div class="meta-item"><strong>发布日期：</strong>2025年12月17日</div>
+                    <div class="meta-item"><strong>正文字数：</strong>约1580字</div>
+                    <div class="meta-item"><strong>沉浸时间：</strong>8分钟</div>
+                </div>
+                
+                <div class="article-excerpt">
+                    <p><strong>副标题</strong>：《八年三幕剧：从“顶流狂欢”到“人格封神》</p>
+                    
+                    <p><strong>简短摘要：</strong>八年，三次心跳。从一个前米粉的视角，解剖小米的两次关键抉择与vivo的终极答案——商业战争的胜负，早已从争夺“顶流光环”，升级为铸造“人格容器”。</p>
+                    
+                    <p><strong>核心模型：</strong></p>
+                    <ul style="margin: 1rem 0 1rem 2rem; color: var(--text-muted);">
+                        <li><strong>流量资本论</strong>（吴亦凡时代）：商业租赁关系，注意力证券化</li>
+                        <li><strong>社会信任载体</strong>（王源时代）：风险校准，联接安全共识</li>
+                        <li><strong>人格共生容器</strong>（田曦薇时代）：价值共生，创作权转移</li>
+                    </ul>
+                </div>
+                <button class="read-more-btn" onclick="openModal('chapter-works')">阅读全文</button>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- 关于区域 -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">关于ACAL认知宇宙</h2>
+                    <p class="about-description">ACAL认知宇宙是Refine无羡创建的一个认知体系，旨在通过深度分析和结构化思考，帮助人们更好地理解商业、文化和社会现象。我们相信，认知是一种可编译的资产，通过系统化的思考和表达，可以创造出更有价值的思想产品。</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🧠</div>
+                            <div>
+                                <h4>认知编译</h4>
+                                <p>将复杂的思想转化为可理解、可传播的认知产品</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔍</div>
+                            <div>
+                                <h4>深度分析</h4>
+                                <p>通过结构化的方法，深入剖析商业和社会现象</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌐</div>
+                            <div>
+                                <h4>体系化思考</h4>
+                                <p>构建完整的认知体系，形成系统化的知识网络</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-container">
+                        <div class="visual-shape shape-1"></div>
+                        <div class="visual-shape shape-2"></div>
+                        <div class="visual-shape shape-3"></div>
+                        <div class="visual-text">ACAL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人资料区域 -->
+    <section id="profile" class="profile">
+        <div class="container">
+            <div class="profile-content">
+                <div class="profile-header">
+                    <h2 class="profile-title">Refine无羡</h2>
+                    <p class="profile-location">江西婺源 → 深圳南山</p>
+                    <div class="profile-tags">
+                        <span class="tag">认知协议架构师</span>
+                        <span class="tag">ACAL创始人</span>
+                        <span class="tag">深度写作者</span>
+                        <span class="tag">商业分析师</span>
+                    </div>
+                </div>
+                <div class="profile-goals">
+                    <div class="goal-item">
+                        <h3 class="goal-year">2025</h3>
+                        <p class="goal-content">外贸🔋健身🏋️法语📖写作✍️</p>
+                    </div>
+                    <div class="goal-item">
+                        <h3 class="goal-year">2026</h3>
+                        <p class="goal-content">AI协议设计师🌙｜ACAL创造者⚙️</p>
+                    </div>
+                </div>
+                <div class="profile-missions">
+                    <div class="mission-item">
+                        <div class="mission-number">1</div>
+                        <div class="mission-content">研究Manus，创造ACAL，让认知可编译。</div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-number">2</div>
+                        <div class="mission-content">ACAL：YAML写的DSL，开启认知编译时代。</div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-number">3</div>
+                        <div class="mission-content">认知资产交易所：让AI对话框，成为可继承的数字资产。💎</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-info-title">联系方式</h3>
+                    <div class="contact-info-items">
+                        <div class="contact-info-item">
+                            <span class="contact-label">抖音</span>
+                            <span class="contact-value">Refine_Wuxian</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="contact-label">微信</span>
+                            <span class="contact-value">Lighting_Andy</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <span class="contact-label">邮箱</span>
+                            <span class="contact-value">80167457@qq.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 class="contact-form-title">分享你的认知思考</h3>
+                    <form action="https://formspree.io/f/xwkwjwwe" method="POST">
+                        <input type="hidden" name="_to" value="80167457@qq.com">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" placeholder="请输入你的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入你的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" placeholder="分享你的认知思考..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">发送留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>ACAL认知宇宙</h3>
+                    <p>Refine无羡的认知体系与思想精华</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link">抖音: Refine_Wuxian</a>
+                    <a href="#" class="social-link">微信: Lighting_Andy</a>
+                    <a href="mailto:80167457@qq.com" class="social-link">邮箱: 80167457@qq.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACAL认知宇宙. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 模态框 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title"></h3>
+                <div class="modal-meta" id="modal-meta"></div>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- JS文件引入（确保路径正确） -->
+    <script src="js/main.js"></script>
+</body>
+</html>

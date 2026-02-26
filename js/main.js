@@ -20,14 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
 function initHeader() {
     // 滚动效果
     window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (header) {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
             if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+                navbar.classList.add('scrolled');
             } else {
-                header.classList.remove('scrolled');
+                navbar.classList.remove('scrolled');
             }
         }
+    });
+    
+    // 移动端菜单
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarNav = document.querySelector('.navbar-nav');
+    
+    if (navbarToggle && navbarNav) {
+        navbarToggle.addEventListener('click', function() {
+            navbarNav.classList.toggle('active');
+        });
+    }
+    
+    // 导航链接点击
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // 移除所有活动状态
+            navLinks.forEach(l => l.classList.remove('active'));
+            // 添加活动状态到当前链接
+            this.classList.add('active');
+            
+            // 关闭移动端菜单
+            if (navbarNav) {
+                navbarNav.classList.remove('active');
+            }
+        });
     });
 }
 
@@ -192,9 +218,6 @@ function initChapterCards() {
         });
     });
     
-    // 创建弹窗元素
-    createModal();
-    
     // 展开全文按钮交互
     const readMoreBtns = document.querySelectorAll('.read-more-btn');
     
@@ -211,35 +234,22 @@ function initChapterCards() {
             openModal(title, meta, content);
         });
     });
-}
-
-// 创建弹窗元素
-function createModal() {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.id = 'contentModal';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-header">
-                <h3 class="modal-title"></h3>
-                <div class="modal-meta"></div>
-            </div>
-            <div class="modal-body"></div>
-        </div>
-    `;
-    document.body.appendChild(modal);
     
     // 关闭弹窗事件
-    const closeBtn = modal.querySelector('.modal-close');
-    closeBtn.addEventListener('click', closeModal);
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
     
     // 点击弹窗外部关闭
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
     
     // 按ESC键关闭
     document.addEventListener('keydown', function(e) {
@@ -251,24 +261,28 @@ function createModal() {
 
 // 打开弹窗
 function openModal(title, meta, content) {
-    const modal = document.getElementById('contentModal');
-    const modalTitle = modal.querySelector('.modal-title');
-    const modalMeta = modal.querySelector('.modal-meta');
-    const modalBody = modal.querySelector('.modal-body');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalMeta = document.getElementById('modal-meta');
+    const modalBody = document.getElementById('modal-body');
     
-    modalTitle.textContent = title;
-    modalMeta.innerHTML = meta;
-    modalBody.innerHTML = content;
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    if (modal && modalTitle && modalMeta && modalBody) {
+        modalTitle.textContent = title;
+        modalMeta.innerHTML = meta;
+        modalBody.innerHTML = content;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 防止背景滚动
+    }
 }
 
 // 关闭弹窗
 function closeModal() {
-    const modal = document.getElementById('contentModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // 恢复背景滚动
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // 恢复背景滚动
+    }
 }
 
 // 滚动动画
